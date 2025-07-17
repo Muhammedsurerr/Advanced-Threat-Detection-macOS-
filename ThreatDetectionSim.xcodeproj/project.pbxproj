@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94138C982E1F8D7A001B8EB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138C942E1F8D7A001B8EB4 /* ContentView.swift */; };
+		94138C9A2E1F8D7A001B8EB4 /* LogDetailView(!!).swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138C952E1F8D7A001B8EB4 /* LogDetailView(!!).swift */; };
+		94138CA72E1F9A4A001B8EB4 /* ExportManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138CA62E1F9A41001B8EB4 /* ExportManager.swift */; };
+		94138CA92E1F9BB6001B8EB4 /* ThreatLogHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138CA82E1F9BAE001B8EB4 /* ThreatLogHistoryView.swift */; };
+		94138CB62E1FD96D001B8EB4 /* OCSFLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138CB52E1FD96B001B8EB4 /* OCSFLogger.swift */; };
+		94138CB82E1FF705001B8EB4 /* ThreatLogSQLiteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94138CB72E1FF702001B8EB4 /* ThreatLogSQLiteView.swift */; };
+		9413F7342E20F804004712B2 /* ThreatStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9413F7332E20F7F9004712B2 /* ThreatStatisticsView.swift */; };
+		942EEC342E1EA39C00AF28A4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 942EEC332E1EA39C00AF28A4 /* libsqlite3.tbd */; };
+		942EEC362E1EA40400AF28A4 /* SQLiteDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EEC352E1EA40100AF28A4 /* SQLiteDB.swift */; };
+		942EEC382E1EA5AF00AF28A4 /* EncryptedThreatLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942EEC372E1EA5AD00AF28A4 /* EncryptedThreatLogger.swift */; };
+		94433F452E1D5298006DC8CB /* EventSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94433F3F2E1D505E006DC8CB /* EventSimulator.swift */; };
+		94433F462E1D52BD006DC8CB /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94433F422E1D50A8006DC8CB /* Event.swift */; };
+		94433F472E1D5319006DC8CB /* RuleEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94433F402E1D5082006DC8CB /* RuleEngine.swift */; };
+		94433F482E1D5321006DC8CB /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94433F412E1D5093006DC8CB /* LogManager.swift */; };
+		94499E3D2E28E58B00F69471 /* lpe_attempts.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94499E3C2E28E58100F69471 /* lpe_attempts.btf */; };
+		94499E3F2E28E5B600F69471 /* LPEWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94499E3E2E28E5B400F69471 /* LPEWatcher.swift */; };
+		94499E412E28E64400F69471 /* sip_bypass.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94499E402E28E64000F69471 /* sip_bypass.btf */; };
+		945C0D2A2E2778860026AF7F /* BPFInjectionWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945C0D292E2778840026AF7F /* BPFInjectionWatcher.swift */; };
+		9492F0E82E1E456000F90160 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 9492F0E72E1E456000F90160 /* SQLite */; };
+		9492F0EE2E1E57BE00F90160 /* libEndpointSecuritySystem.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9492F0EC2E1E57BE00F90160 /* libEndpointSecuritySystem.tbd */; };
+		9492F0EF2E1E57BE00F90160 /* libEndpointSecurity.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9492F0ED2E1E57BE00F90160 /* libEndpointSecurity.tbd */; };
+		9492F0F12E1E583900F90160 /* ESClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492F0F02E1E583600F90160 /* ESClient.swift */; };
+		9492F0F32E1E5E8A00F90160 /* ProcessMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492F0F22E1E5E8000F90160 /* ProcessMonitor.swift */; };
+		9492F0F52E1E602900F90160 /* ShellExecutor(!!).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9492F0F42E1E602700F90160 /* ShellExecutor(!!).swift */; };
+		94B197372E1E664500023B54 /* ProcessInfoMonitor(!!).swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B197362E1E664200023B54 /* ProcessInfoMonitor(!!).swift */; };
+		94B197482E1E779F00023B54 /* ProcessAnalyzer(!!).swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B197472E1E779D00023B54 /* ProcessAnalyzer(!!).swift */; };
+		94B1974A2E1E7A7500023B54 /* ProcessDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B197492E1E7A6700023B54 /* ProcessDetailView.swift */; };
+		94B1974C2E1E84A200023B54 /* ThreatDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B1974B2E1E84A000023B54 /* ThreatDetector.swift */; };
+		94B1974E2E1E8F9200023B54 /* OCSFLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B1974D2E1E8F9000023B54 /* OCSFLog.swift */; };
+		94B197522E1E91A000023B54 /* ThreatLogDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B197512E1E919D00023B54 /* ThreatLogDatabase.swift */; };
+		94BCC3562E279593001657A5 /* ThreatDetectionSim_Bridging_Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 94BCC3552E279567001657A5 /* ThreatDetectionSim_Bridging_Header.h */; };
+		94BCC3582E2797A9001657A5 /* libbsm.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BCC3572E2797A9001657A5 /* libbsm.tbd */; };
+		94BCC35A2E2798C7001657A5 /* AntiExploitWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BCC3592E2798C5001657A5 /* AntiExploitWatcher.swift */; };
+		94BCC35F2E27B229001657A5 /* CredentialMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BCC35E2E27B227001657A5 /* CredentialMonitor.swift */; };
+		94BCC3622E27B662001657A5 /* BPFFilelessWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BCC3612E27B660001657A5 /* BPFFilelessWatcher.swift */; };
+		94BCC36B2E27C21F001657A5 /* fileless_malware.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94BCC36A2E27C21F001657A5 /* fileless_malware.btf */; };
+		94BCC36D2E27C276001657A5 /* memory_tamper.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94BCC36C2E27C276001657A5 /* memory_tamper.btf */; };
+		94BCC36F2E27C289001657A5 /* credential_watch.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94BCC36E2E27C289001657A5 /* credential_watch.btf */; };
+		94BCC3712E27C29A001657A5 /* ptrace.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94BCC3702E27C29A001657A5 /* ptrace.btf */; };
+		94BCC3732E27C2A7001657A5 /* task_for_pid.btf in Resources */ = {isa = PBXBuildFile; fileRef = 94BCC3722E27C2A6001657A5 /* task_for_pid.btf */; };
+		94DDE9042E28D06F00C43407 /* MemoryTamperMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DDE9032E28D06C00C43407 /* MemoryTamperMonitor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94433F202E1D4D24006DC8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94433F092E1D4D23006DC8CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94433F102E1D4D23006DC8CB;
+			remoteInfo = ThreatDetectionSim;
+		};
+		94433F2A2E1D4D24006DC8CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94433F092E1D4D23006DC8CB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94433F102E1D4D23006DC8CB;
+			remoteInfo = ThreatDetectionSim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94138C942E1F8D7A001B8EB4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		94138C952E1F8D7A001B8EB4 /* LogDetailView(!!).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogDetailView(!!).swift"; sourceTree = "<group>"; };
+		94138CA62E1F9A41001B8EB4 /* ExportManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportManager.swift; sourceTree = "<group>"; };
+		94138CA82E1F9BAE001B8EB4 /* ThreatLogHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatLogHistoryView.swift; sourceTree = "<group>"; };
+		94138CB52E1FD96B001B8EB4 /* OCSFLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCSFLogger.swift; sourceTree = "<group>"; };
+		94138CB72E1FF702001B8EB4 /* ThreatLogSQLiteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatLogSQLiteView.swift; sourceTree = "<group>"; };
+		9413F7332E20F7F9004712B2 /* ThreatStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatStatisticsView.swift; sourceTree = "<group>"; };
+		942EEC332E1EA39C00AF28A4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		942EEC352E1EA40100AF28A4 /* SQLiteDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDB.swift; sourceTree = "<group>"; };
+		942EEC372E1EA5AD00AF28A4 /* EncryptedThreatLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptedThreatLogger.swift; sourceTree = "<group>"; };
+		94433F112E1D4D23006DC8CB /* ThreatDetectionSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreatDetectionSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		94433F1F2E1D4D24006DC8CB /* ThreatDetectionSimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreatDetectionSimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94433F292E1D4D24006DC8CB /* ThreatDetectionSimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreatDetectionSimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		94433F3F2E1D505E006DC8CB /* EventSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSimulator.swift; sourceTree = "<group>"; };
+		94433F402E1D5082006DC8CB /* RuleEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleEngine.swift; sourceTree = "<group>"; };
+		94433F412E1D5093006DC8CB /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		94433F422E1D50A8006DC8CB /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		94499E3C2E28E58100F69471 /* lpe_attempts.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = lpe_attempts.btf; sourceTree = "<group>"; };
+		94499E3E2E28E5B400F69471 /* LPEWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPEWatcher.swift; sourceTree = "<group>"; };
+		94499E402E28E64000F69471 /* sip_bypass.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = sip_bypass.btf; sourceTree = "<group>"; };
+		945C0D292E2778840026AF7F /* BPFInjectionWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPFInjectionWatcher.swift; sourceTree = "<group>"; };
+		9492F0EC2E1E57BE00F90160 /* libEndpointSecuritySystem.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecuritySystem.tbd; path = usr/lib/libEndpointSecuritySystem.tbd; sourceTree = SDKROOT; };
+		9492F0ED2E1E57BE00F90160 /* libEndpointSecurity.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libEndpointSecurity.tbd; path = usr/lib/libEndpointSecurity.tbd; sourceTree = SDKROOT; };
+		9492F0F02E1E583600F90160 /* ESClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ESClient.swift; sourceTree = "<group>"; };
+		9492F0F22E1E5E8000F90160 /* ProcessMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMonitor.swift; sourceTree = "<group>"; };
+		9492F0F42E1E602700F90160 /* ShellExecutor(!!).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShellExecutor(!!).swift"; sourceTree = "<group>"; };
+		94B197362E1E664200023B54 /* ProcessInfoMonitor(!!).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfoMonitor(!!).swift"; sourceTree = "<group>"; };
+		94B197472E1E779D00023B54 /* ProcessAnalyzer(!!).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessAnalyzer(!!).swift"; sourceTree = "<group>"; };
+		94B197492E1E7A6700023B54 /* ProcessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessDetailView.swift; sourceTree = "<group>"; };
+		94B1974B2E1E84A000023B54 /* ThreatDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatDetector.swift; sourceTree = "<group>"; };
+		94B1974D2E1E8F9000023B54 /* OCSFLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCSFLog.swift; sourceTree = "<group>"; };
+		94B197512E1E919D00023B54 /* ThreatLogDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatLogDatabase.swift; sourceTree = "<group>"; };
+		94BCC3552E279567001657A5 /* ThreatDetectionSim_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreatDetectionSim_Bridging_Header.h; sourceTree = "<group>"; };
+		94BCC3572E2797A9001657A5 /* libbsm.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbsm.tbd; path = usr/lib/libbsm.tbd; sourceTree = SDKROOT; };
+		94BCC3592E2798C5001657A5 /* AntiExploitWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntiExploitWatcher.swift; sourceTree = "<group>"; };
+		94BCC35E2E27B227001657A5 /* CredentialMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialMonitor.swift; sourceTree = "<group>"; };
+		94BCC3612E27B660001657A5 /* BPFFilelessWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPFFilelessWatcher.swift; sourceTree = "<group>"; };
+		94BCC36A2E27C21F001657A5 /* fileless_malware.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = fileless_malware.btf; sourceTree = "<group>"; };
+		94BCC36C2E27C276001657A5 /* memory_tamper.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = memory_tamper.btf; sourceTree = "<group>"; };
+		94BCC36E2E27C289001657A5 /* credential_watch.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = credential_watch.btf; sourceTree = "<group>"; };
+		94BCC3702E27C29A001657A5 /* ptrace.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = ptrace.btf; sourceTree = "<group>"; };
+		94BCC3722E27C2A6001657A5 /* task_for_pid.btf */ = {isa = PBXFileReference; lastKnownFileType = text; path = task_for_pid.btf; sourceTree = "<group>"; };
+		94DDE9032E28D06C00C43407 /* MemoryTamperMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryTamperMonitor.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		94433F132E1D4D23006DC8CB /* ThreatDetectionSim */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ThreatDetectionSim;
+			sourceTree = "<group>";
+		};
+		94433F222E1D4D24006DC8CB /* ThreatDetectionSimTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ThreatDetectionSimTests;
+			sourceTree = "<group>";
+		};
+		94433F2C2E1D4D24006DC8CB /* ThreatDetectionSimUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ThreatDetectionSimUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94433F0E2E1D4D23006DC8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94BCC3582E2797A9001657A5 /* libbsm.tbd in Frameworks */,
+				942EEC342E1EA39C00AF28A4 /* libsqlite3.tbd in Frameworks */,
+				9492F0EE2E1E57BE00F90160 /* libEndpointSecuritySystem.tbd in Frameworks */,
+				9492F0EF2E1E57BE00F90160 /* libEndpointSecurity.tbd in Frameworks */,
+				9492F0E82E1E456000F90160 /* SQLite in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F1C2E1D4D24006DC8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F262E1D4D24006DC8CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94138CA42E1F8ED2001B8EB4 /* Db */ = {
+			isa = PBXGroup;
+			children = (
+				94138CB52E1FD96B001B8EB4 /* OCSFLogger.swift */,
+				94B197512E1E919D00023B54 /* ThreatLogDatabase.swift */,
+				94B1974D2E1E8F9000023B54 /* OCSFLog.swift */,
+				94433F412E1D5093006DC8CB /* LogManager.swift */,
+			);
+			path = Db;
+			sourceTree = "<group>";
+		};
+		94138CA52E1F8F27001B8EB4 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				9413F7332E20F7F9004712B2 /* ThreatStatisticsView.swift */,
+				94138CB72E1FF702001B8EB4 /* ThreatLogSQLiteView.swift */,
+				94138CA82E1F9BAE001B8EB4 /* ThreatLogHistoryView.swift */,
+				94138CA62E1F9A41001B8EB4 /* ExportManager.swift */,
+				94138C942E1F8D7A001B8EB4 /* ContentView.swift */,
+				94B197492E1E7A6700023B54 /* ProcessDetailView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		94433F082E1D4D23006DC8CB = {
+			isa = PBXGroup;
+			children = (
+				94499E402E28E64000F69471 /* sip_bypass.btf */,
+				94499E3C2E28E58100F69471 /* lpe_attempts.btf */,
+				94BCC3722E27C2A6001657A5 /* task_for_pid.btf */,
+				94BCC3702E27C29A001657A5 /* ptrace.btf */,
+				94BCC36E2E27C289001657A5 /* credential_watch.btf */,
+				94BCC36C2E27C276001657A5 /* memory_tamper.btf */,
+				94BCC36A2E27C21F001657A5 /* fileless_malware.btf */,
+				94BCC3552E279567001657A5 /* ThreatDetectionSim_Bridging_Header.h */,
+				94A9B9252E24DE3900EB91FC /* ForTesting */,
+				94138CA52E1F8F27001B8EB4 /* UI */,
+				94138CA42E1F8ED2001B8EB4 /* Db */,
+				94433F3D2E1D5009006DC8CB /* Monitoring */,
+				94433F3C2E1D4FFC006DC8CB /* Sources */,
+				94433F132E1D4D23006DC8CB /* ThreatDetectionSim */,
+				94433F222E1D4D24006DC8CB /* ThreatDetectionSimTests */,
+				94433F2C2E1D4D24006DC8CB /* ThreatDetectionSimUITests */,
+				9492F0EB2E1E57BE00F90160 /* Frameworks */,
+				94433F122E1D4D23006DC8CB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94433F122E1D4D23006DC8CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94433F112E1D4D23006DC8CB /* ThreatDetectionSim.app */,
+				94433F1F2E1D4D24006DC8CB /* ThreatDetectionSimTests.xctest */,
+				94433F292E1D4D24006DC8CB /* ThreatDetectionSimUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94433F3C2E1D4FFC006DC8CB /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				94433F422E1D50A8006DC8CB /* Event.swift */,
+				94433F402E1D5082006DC8CB /* RuleEngine.swift */,
+				94B1974B2E1E84A000023B54 /* ThreatDetector.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		94433F3D2E1D5009006DC8CB /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				94499E3E2E28E5B400F69471 /* LPEWatcher.swift */,
+				94DDE9032E28D06C00C43407 /* MemoryTamperMonitor.swift */,
+				94BCC3612E27B660001657A5 /* BPFFilelessWatcher.swift */,
+				94BCC35E2E27B227001657A5 /* CredentialMonitor.swift */,
+				9492F0F22E1E5E8000F90160 /* ProcessMonitor.swift */,
+				9492F0F02E1E583600F90160 /* ESClient.swift */,
+				94BCC3592E2798C5001657A5 /* AntiExploitWatcher.swift */,
+				945C0D292E2778840026AF7F /* BPFInjectionWatcher.swift */,
+			);
+			path = Monitoring;
+			sourceTree = "<group>";
+		};
+		9492F0EB2E1E57BE00F90160 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94BCC3572E2797A9001657A5 /* libbsm.tbd */,
+				942EEC332E1EA39C00AF28A4 /* libsqlite3.tbd */,
+				9492F0ED2E1E57BE00F90160 /* libEndpointSecurity.tbd */,
+				9492F0EC2E1E57BE00F90160 /* libEndpointSecuritySystem.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94A9B9252E24DE3900EB91FC /* ForTesting */ = {
+			isa = PBXGroup;
+			children = (
+				94138C952E1F8D7A001B8EB4 /* LogDetailView(!!).swift */,
+				942EEC372E1EA5AD00AF28A4 /* EncryptedThreatLogger.swift */,
+				942EEC352E1EA40100AF28A4 /* SQLiteDB.swift */,
+				94B197362E1E664200023B54 /* ProcessInfoMonitor(!!).swift */,
+				94B197472E1E779D00023B54 /* ProcessAnalyzer(!!).swift */,
+				94433F3F2E1D505E006DC8CB /* EventSimulator.swift */,
+				9492F0F42E1E602700F90160 /* ShellExecutor(!!).swift */,
+			);
+			path = ForTesting;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94433F102E1D4D23006DC8CB /* ThreatDetectionSim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94433F332E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSim" */;
+			buildPhases = (
+				94433F0D2E1D4D23006DC8CB /* Sources */,
+				94433F0E2E1D4D23006DC8CB /* Frameworks */,
+				94433F0F2E1D4D23006DC8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				94433F132E1D4D23006DC8CB /* ThreatDetectionSim */,
+			);
+			name = ThreatDetectionSim;
+			packageProductDependencies = (
+				9492F0E72E1E456000F90160 /* SQLite */,
+			);
+			productName = ThreatDetectionSim;
+			productReference = 94433F112E1D4D23006DC8CB /* ThreatDetectionSim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94433F1E2E1D4D24006DC8CB /* ThreatDetectionSimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94433F362E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSimTests" */;
+			buildPhases = (
+				94433F1B2E1D4D24006DC8CB /* Sources */,
+				94433F1C2E1D4D24006DC8CB /* Frameworks */,
+				94433F1D2E1D4D24006DC8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94433F212E1D4D24006DC8CB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				94433F222E1D4D24006DC8CB /* ThreatDetectionSimTests */,
+			);
+			name = ThreatDetectionSimTests;
+			packageProductDependencies = (
+			);
+			productName = ThreatDetectionSimTests;
+			productReference = 94433F1F2E1D4D24006DC8CB /* ThreatDetectionSimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		94433F282E1D4D24006DC8CB /* ThreatDetectionSimUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94433F392E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSimUITests" */;
+			buildPhases = (
+				94433F252E1D4D24006DC8CB /* Sources */,
+				94433F262E1D4D24006DC8CB /* Frameworks */,
+				94433F272E1D4D24006DC8CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94433F2B2E1D4D24006DC8CB /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				94433F2C2E1D4D24006DC8CB /* ThreatDetectionSimUITests */,
+			);
+			name = ThreatDetectionSimUITests;
+			packageProductDependencies = (
+			);
+			productName = ThreatDetectionSimUITests;
+			productReference = 94433F292E1D4D24006DC8CB /* ThreatDetectionSimUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94433F092E1D4D23006DC8CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					94433F102E1D4D23006DC8CB = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					94433F1E2E1D4D24006DC8CB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 94433F102E1D4D23006DC8CB;
+					};
+					94433F282E1D4D24006DC8CB = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 94433F102E1D4D23006DC8CB;
+					};
+				};
+			};
+			buildConfigurationList = 94433F0C2E1D4D23006DC8CB /* Build configuration list for PBXProject "ThreatDetectionSim" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94433F082E1D4D23006DC8CB;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9492F0E62E1E456000F90160 /* XCRemoteSwiftPackageReference "SQLite" */,
+				942EEC322E1EA1C400AF28A4 /* XCRemoteSwiftPackageReference "swift-sqlcipher" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 94433F122E1D4D23006DC8CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94433F102E1D4D23006DC8CB /* ThreatDetectionSim */,
+				94433F1E2E1D4D24006DC8CB /* ThreatDetectionSimTests */,
+				94433F282E1D4D24006DC8CB /* ThreatDetectionSimUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94433F0F2E1D4D23006DC8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94499E3D2E28E58B00F69471 /* lpe_attempts.btf in Resources */,
+				94BCC3712E27C29A001657A5 /* ptrace.btf in Resources */,
+				94BCC3732E27C2A7001657A5 /* task_for_pid.btf in Resources */,
+				94BCC36F2E27C289001657A5 /* credential_watch.btf in Resources */,
+				94BCC36B2E27C21F001657A5 /* fileless_malware.btf in Resources */,
+				94499E412E28E64400F69471 /* sip_bypass.btf in Resources */,
+				94BCC36D2E27C276001657A5 /* memory_tamper.btf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F1D2E1D4D24006DC8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F272E1D4D24006DC8CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94433F0D2E1D4D23006DC8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94BCC35A2E2798C7001657A5 /* AntiExploitWatcher.swift in Sources */,
+				94BCC3562E279593001657A5 /* ThreatDetectionSim_Bridging_Header.h in Sources */,
+				94499E3F2E28E5B600F69471 /* LPEWatcher.swift in Sources */,
+				94138CA92E1F9BB6001B8EB4 /* ThreatLogHistoryView.swift in Sources */,
+				94B1974A2E1E7A7500023B54 /* ProcessDetailView.swift in Sources */,
+				94B197372E1E664500023B54 /* ProcessInfoMonitor(!!).swift in Sources */,
+				94138CB62E1FD96D001B8EB4 /* OCSFLogger.swift in Sources */,
+				94B197482E1E779F00023B54 /* ProcessAnalyzer(!!).swift in Sources */,
+				94DDE9042E28D06F00C43407 /* MemoryTamperMonitor.swift in Sources */,
+				94B1974C2E1E84A200023B54 /* ThreatDetector.swift in Sources */,
+				94138CB82E1FF705001B8EB4 /* ThreatLogSQLiteView.swift in Sources */,
+				942EEC362E1EA40400AF28A4 /* SQLiteDB.swift in Sources */,
+				9492F0F12E1E583900F90160 /* ESClient.swift in Sources */,
+				94433F482E1D5321006DC8CB /* LogManager.swift in Sources */,
+				94BCC3622E27B662001657A5 /* BPFFilelessWatcher.swift in Sources */,
+				94138C982E1F8D7A001B8EB4 /* ContentView.swift in Sources */,
+				94138CA72E1F9A4A001B8EB4 /* ExportManager.swift in Sources */,
+				94138C9A2E1F8D7A001B8EB4 /* LogDetailView(!!).swift in Sources */,
+				942EEC382E1EA5AF00AF28A4 /* EncryptedThreatLogger.swift in Sources */,
+				94433F462E1D52BD006DC8CB /* Event.swift in Sources */,
+				94433F472E1D5319006DC8CB /* RuleEngine.swift in Sources */,
+				94433F452E1D5298006DC8CB /* EventSimulator.swift in Sources */,
+				9492F0F32E1E5E8A00F90160 /* ProcessMonitor.swift in Sources */,
+				94B197522E1E91A000023B54 /* ThreatLogDatabase.swift in Sources */,
+				9492F0F52E1E602900F90160 /* ShellExecutor(!!).swift in Sources */,
+				945C0D2A2E2778860026AF7F /* BPFInjectionWatcher.swift in Sources */,
+				94BCC35F2E27B229001657A5 /* CredentialMonitor.swift in Sources */,
+				94B1974E2E1E8F9200023B54 /* OCSFLog.swift in Sources */,
+				9413F7342E20F804004712B2 /* ThreatStatisticsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F1B2E1D4D24006DC8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94433F252E1D4D24006DC8CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94433F212E1D4D24006DC8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94433F102E1D4D23006DC8CB /* ThreatDetectionSim */;
+			targetProxy = 94433F202E1D4D24006DC8CB /* PBXContainerItemProxy */;
+		};
+		94433F2B2E1D4D24006DC8CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94433F102E1D4D23006DC8CB /* ThreatDetectionSim */;
+			targetProxy = 94433F2A2E1D4D24006DC8CB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		94433F312E1D4D24006DC8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ThreatDetectionSim/ThreatDetectionSim_Bridging_Header.h\n";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94433F322E1D4D24006DC8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "ThreatDetectionSim/ThreatDetectionSim_Bridging_Header.h\n";
+			};
+			name = Release;
+		};
+		94433F342E1D4D24006DC8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ThreatDetectionSim/ThreatDetectionSim.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94433F352E1D4D24006DC8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ThreatDetectionSim/ThreatDetectionSim.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		94433F372E1D4D24006DC8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreatDetectionSim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThreatDetectionSim";
+			};
+			name = Debug;
+		};
+		94433F382E1D4D24006DC8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ThreatDetectionSim.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ThreatDetectionSim";
+			};
+			name = Release;
+		};
+		94433F3A2E1D4D24006DC8CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ThreatDetectionSim;
+			};
+			name = Debug;
+		};
+		94433F3B2E1D4D24006DC8CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.first.ThreatDetectionSimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = ThreatDetectionSim;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94433F0C2E1D4D23006DC8CB /* Build configuration list for PBXProject "ThreatDetectionSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94433F312E1D4D24006DC8CB /* Debug */,
+				94433F322E1D4D24006DC8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94433F332E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94433F342E1D4D24006DC8CB /* Debug */,
+				94433F352E1D4D24006DC8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94433F362E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94433F372E1D4D24006DC8CB /* Debug */,
+				94433F382E1D4D24006DC8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94433F392E1D4D24006DC8CB /* Build configuration list for PBXNativeTarget "ThreatDetectionSimUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94433F3A2E1D4D24006DC8CB /* Debug */,
+				94433F3B2E1D4D24006DC8CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		942EEC322E1EA1C400AF28A4 /* XCRemoteSwiftPackageReference "swift-sqlcipher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/skiptools/swift-sqlcipher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+		9492F0E62E1E456000F90160 /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.15.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9492F0E72E1E456000F90160 /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9492F0E62E1E456000F90160 /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 94433F092E1D4D23006DC8CB /* Project object */;
+}

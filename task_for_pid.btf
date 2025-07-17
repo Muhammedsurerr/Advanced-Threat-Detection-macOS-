@@ -1,0 +1,5 @@
+tracepoint:mach_syscall:task_for_pid
+{
+    printf("PID %d called task_for_pid on target PID %d\n", pid, args->pid);
+}
+

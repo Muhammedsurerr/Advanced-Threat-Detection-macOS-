@@ -1,0 +1,12 @@
+#!/usr/bin/env bpftrace
+
+tracepoint:syscalls:sys_enter_execve
+/str(args->argv[0]) == "/usr/bin/sudo" ||
+ str(args->argv[0]) == "/usr/bin/dscl" ||
+ str(args->argv[0]) == "/bin/launchctl" ||
+ str(args->argv[0]) == "/usr/bin/crontab" ||
+ str(args->argv[0]) == "/usr/sbin/nvram"/
+{
+    printf("LPE attempt detected! PID %d (%s)\n", pid, comm);
+}
+

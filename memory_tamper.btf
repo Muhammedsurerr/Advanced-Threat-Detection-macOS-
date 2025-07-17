@@ -1,0 +1,13 @@
+tracepoint:syscalls:sys_enter_ptrace
+/args->request == 31/  // 31 = PT_DENY_ATTACH
+{
+    printf("PID:%d Message: ptrace PT_DENY_ATTACH detected\n", pid);
+}
+
+kprobe:mprotect
+{
+    if ((arg2 & 0x7) == 0x7) {
+        printf("PID:%d Message: mprotect with RWX permissions\n", pid);
+    }
+}
+

@@ -1,0 +1,12 @@
+#!/usr/bin/env bpftrace
+
+tracepoint:syscalls:sys_enter_execve
+/str(args->argv[0]) == "/usr/sbin/nvram" ||
+ str(args->argv[0]) == "/usr/sbin/bless" ||
+ str(args->argv[0]) == "/usr/bin/csrutil" ||
+ str(args->argv[0]) == "/sbin/kextload" ||
+ str(args->argv[0]) == "/usr/bin/kmutil"/
+{
+    printf("SIP Bypass attempt detected! PID %d (%s)\n", pid, comm);
+}
+

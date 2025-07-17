@@ -1,0 +1,6 @@
+tracepoint:syscalls:sys_enter_ptrace
+/args->request == 31/  // PT_DENY_ATTACH
+{
+    printf(" ptrace(PT_DENY_ATTACH) çağrısı - PID: %d, UID: %d\n", pid, uid);
+}
+
