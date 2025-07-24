@@ -54,3 +54,11 @@ Projede MITRE ATT&CK taktikleri kapsamında aşağıdaki saldırı teknikleri i�
 | `ThreatLogger` (custom)| Tehditleri veritabanına kaydeden katman       |
 
 ---
+
+## Arayüz Tasarımı
+
+
+<img width="941" height="734" alt="3" src="https://github.com/user-attachments/assets/1eff0ba2-092b-469f-a9f0-903a64fe9db8" />
+
+
+
