@@ -13,7 +13,7 @@ class LogManager {
     private init() {
         // Veritabanı dosyasının yolu (Documents dizini)
         let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        print("📁 Veritabanı dizini: \(path)")
+        print(" Veritabanı dizini: \(path)")
         do {
             // SQLite bağlantısını oluştur
             db = try Connection("\(path)/logs.sqlite3")
@@ -25,7 +25,7 @@ class LogManager {
             })
         } catch {
             db = nil
-            print("❌ SQLite bağlantısı kurulamadı: \(error)")
+            print(" SQLite bağlantısı kurulamadı: \(error)")
         }
     }
 
@@ -40,13 +40,13 @@ class LogManager {
             guard let jsonString = String(data: jsonData, encoding: .utf8) else { return }
 
             // Konsola yazdır
-            print("🚨 OCSF JSON Log:\n\(jsonString)")
+            print(" OCSF JSON Log:\n\(jsonString)")
 
             // SQLite tablosuna ekle
             let insert = logsTable.insert(id <- UUID().uuidString, json <- jsonString)
             try db?.run(insert)
         } catch {
-            print("❌ Log kaydı yapılamadı: \(error)")
+            print(" Log kaydı yapılamadı: \(error)")
         }
     }
 
@@ -63,7 +63,7 @@ class LogManager {
                 }
             }
         } catch {
-            print("❌ Loglar okunamadı: \(error)")
+            print(" Loglar okunamadı: \(error)")
         }
 
         return events
@@ -73,9 +73,9 @@ class LogManager {
     func clearAllLogs() {
         do {
             try db?.run(logsTable.delete())
-            print("🧹 Tüm loglar silindi.")
+            print(" Tüm loglar silindi.")
         } catch {
-            print("❌ Loglar silinemedi: \(error)")
+            print(" Loglar silinemedi: \(error)")
         }
     }
 
@@ -91,9 +91,9 @@ class LogManager {
             let exportURL = desktopURL.appendingPathComponent("exported_logs.json")
 
             try jsonData.write(to: exportURL)
-            print("✅ Loglar başarıyla dışa aktarıldı: \(exportURL.path)")
+            print(" Loglar başarıyla dışa aktarıldı: \(exportURL.path)")
         } catch {
-            print("❌ Log dışa aktarma hatası: \(error)")
+            print(" Log dışa aktarma hatası: \(error)")
         }
     }
 }
