@@ -67,13 +67,13 @@ struct ThreatStatisticsView: View {
         .frame(minWidth: 300) // Sabit minimum genişlik
     }
 
-    // 📌 Tehdit türlerine göre adet sayımı
+    //  Tehdit türlerine göre adet sayımı
     private var threatCounts: [String: Int] {
         Dictionary(grouping: logs, by: { $0.eventType })
             .mapValues { $0.count }
     }
 
-    // 🔍 En sık geçen processName’i bul
+    //  En sık geçen processName’i bul
     private func mostFrequentProcess() -> String? {
         let countMap = Dictionary(grouping: logs, by: { $0.processName })
             .mapValues { $0.count }
@@ -81,7 +81,7 @@ struct ThreatStatisticsView: View {
         return countMap.max { $0.value < $1.value }?.key
     }
 
-    // 🕒 Zaman bazlı sıralı log listesi
+    //  Zaman bazlı sıralı log listesi
     private var recentLogs: [OCSFLog] {
         logs.sorted { $0.timestamp > $1.timestamp }
     }
