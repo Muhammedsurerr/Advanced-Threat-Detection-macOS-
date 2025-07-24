@@ -8,7 +8,7 @@ class CredentialDumpingWatcher: ObservableObject {
         monitoring = true
 
         guard let scriptPath = Bundle.main.path(forResource: "credential_watch", ofType: "btf") else {
-            print("⚠️ BPF script bulunamadı: credential_watch.btf")
+            print("⚠ BPF script bulunamadı: credential_watch.btf")
             return
         }
 
@@ -24,7 +24,7 @@ class CredentialDumpingWatcher: ObservableObject {
             do {
                 try task.run()
             } catch {
-                print("❌ BPFtrace çalıştırılamadı: \(error)")
+                print(" BPFtrace çalıştırılamadı: \(error)")
                 self.monitoring = false
                 return
             }
