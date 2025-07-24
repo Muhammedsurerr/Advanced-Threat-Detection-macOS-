@@ -8,18 +8,18 @@ class BPFInjectionWatcher: ObservableObject {
         monitoring = true
 
         guard let scriptPath = Bundle.main.path(forResource: scriptName, ofType: "btf") else {
-            print("❌ BPF script bulunamadı: \(scriptName).btf")
+            print(" BPF script bulunamadı: \(scriptName).btf")
             monitoring = false
             return
         }
-        print("✅ BPF script yolu bulundu: \(scriptPath)")
+        print(" BPF script yolu bulundu: \(scriptPath)")
 
         // Script içeriğini oku, test için yazdır
         do {
             let content = try String(contentsOfFile: scriptPath, encoding: .utf8)
-            print("📄 Script içeriği:\n\(content)")
+            print(" Script içeriği:\n\(content)")
         } catch {
-            print("❌ Script okunamadı: \(error)")
+            print(" Script okunamadı: \(error)")
         }
 
         // Burada script çalıştırılacak kısmı geçici kapatalım ya da açalım:
@@ -35,14 +35,14 @@ class BPFInjectionWatcher: ObservableObject {
             do {
                 try task.run()
             } catch {
-                print("❌ BPFtrace çalıştırılamadı: \(error)")
+                print(" BPFtrace çalıştırılamadı: \(error)")
                 self.monitoring = false
                 return
             }
 
             pipe.fileHandleForReading.readabilityHandler = { fileHandle in
                 if let line = String(data: fileHandle.availableData, encoding: .utf8) {
-                    print("📢 BPFtrace çıktı: \(line)")
+                    print(" BPFtrace çıktı: \(line)")
                     self.parseOutput(line: line, callback: processDetectedCallback)
                 }
             }
@@ -71,9 +71,9 @@ class BPFInjectionWatcher: ObservableObject {
     // Test için: script var mı yok mu direkt kontrol
     func testScriptPresence(scriptName: String) {
         if let scriptPath = Bundle.main.path(forResource: scriptName, ofType: "btf") {
-            print("✅ Test: Script bulundu: \(scriptPath)")
+            print(" Test: Script bulundu: \(scriptPath)")
         } else {
-            print("❌ Test: Script bulunamadı: \(scriptName).btf")
+            print(" Test: Script bulunamadı: \(scriptName).btf")
         }
     }
 }
