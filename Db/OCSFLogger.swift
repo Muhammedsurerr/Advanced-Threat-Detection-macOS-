@@ -26,10 +26,10 @@ class OCSFLogger {
             let data = try JSONEncoder().encode(logs)
             // JSON verisini dosyaya yaz
             try data.write(to: logFile)
-            print("✅ OCSF log JSON'a kaydedildi: \(logFile.path)")
+            print(" OCSF log JSON'a kaydedildi: \(logFile.path)")
         } catch {
             // Yazma sırasında hata olursa konsola hata mesajı bas
-            print("❌ JSON log yazma hatası: \(error)")
+            print(" JSON log yazma hatası: \(error)")
         }
     }
 }
