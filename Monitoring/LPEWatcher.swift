@@ -5,7 +5,7 @@ class LPEWatcher {
 
     func startMonitoring(scriptName: String, onDetect: @escaping (_ pid: Int, _ message: String) -> Void) {
         guard let scriptPath = Bundle.main.path(forResource: scriptName, ofType: "btf") else {
-            print("⚠️ Script not found: \(scriptName).btf")
+            print(" Script not found: \(scriptName).btf")
             return
         }
 
@@ -18,13 +18,13 @@ class LPEWatcher {
         process.standardError = pipe
 
         process.terminationHandler = { _ in
-            print("📴 LPEWatcher terminated")
+            print(" LPEWatcher terminated")
         }
 
         do {
             try process.run()
             self.task = process
-            print("🚀 LPEWatcher monitoring started")
+            print(" LPEWatcher monitoring started")
 
             pipe.fileHandleForReading.readabilityHandler = { handle in
                 let output = String(data: handle.availableData, encoding: .utf8) ?? ""
@@ -36,7 +36,7 @@ class LPEWatcher {
                 }
             }
         } catch {
-            print("❌ Could not start LPEWatcher: \(error)")
+            print(" Could not start LPEWatcher: \(error)")
         }
     }
 
