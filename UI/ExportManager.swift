@@ -15,7 +15,7 @@ class ExportManager {
         
         // Eğer log dosyası yoksa hata mesajı yazdır ve işlemi durdur
         guard fileManager.fileExists(atPath: logFileURL.path) else {
-            print("❌ Log dosyası bulunamadı: \(logFileURL.path)")
+            print(" Log dosyası bulunamadı: \(logFileURL.path)")
             return
         }
 
@@ -33,10 +33,10 @@ class ExportManager {
                 do {
                     // Log dosyasını seçilen yere kopyala
                     try fileManager.copyItem(at: logFileURL, to: destinationURL)
-                    print("✅ Log başarıyla dışa aktarıldı: \(destinationURL.path)")
+                    print(" Log başarıyla dışa aktarıldı: \(destinationURL.path)")
                 } catch {
                     // Kopyalama sırasında hata olursa yazdır
-                    print("❌ Dışa aktarma hatası: \(error.localizedDescription)")
+                    print(" Dışa aktarma hatası: \(error.localizedDescription)")
                 }
             }
         }
