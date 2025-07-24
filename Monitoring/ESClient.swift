@@ -1,9 +1,11 @@
 import EndpointSecurity
 import Foundation
 
+// C fonksiyonu Swift'te kullanmak için declare ediyoruz:
 @_silgen_name("audit_token_to_pid")
 func audit_token_to_pid(_ token: UnsafePointer<UInt32>) -> Int32
 
+// Audit token'dan PID almayı sağlayan yardımcı fonksiyon:
 func pidFromAuditToken(_ token: audit_token_t) -> pid_t {
     var pid: pid_t = 0
     var tokenCopy = token
@@ -20,86 +22,68 @@ class ESClient {
 
     init?() {
         let result = es_new_client(&client) { client, message in
-            guard let msg = message?.pointee else {
-                print("Geçersiz mesaj.")
-                return
-            }
+            let msg = message.pointee
 
-            guard msg.event_type == ES_EVENT_TYPE_NOTIFY_EXEC else {
-                return
-            }
+            if msg.event_type == ES_EVENT_TYPE_NOTIFY_EXEC {
+                let exec = msg.event.exec
+                let target = exec.target.pointee  // es_process_t
+                
+                let executable = target.executable.pointee
+                let pathStruct = executable.path
 
-            let exec = msg.event.exec
-            let target = exec.target.pointee
-            let executable = target.executable.pointee
-            let pathStruct = executable.path
-
-            guard let pathData = pathStruct.data else {
-                print("Yürütülebilir yol okunamadı.")
-                return
-            }
-
-            let path = String(bytesNoCopy: UnsafeMutableRawPointer(mutating: pathData),
-                              length: Int(pathStruct.length),
-                              encoding: .utf8,
-                              freeWhenDone: false) ?? "<bilinmiyor>"
-
-            let pid = pidFromAuditToken(target.audit_token)
-            let ppid = Int(target.ppid)
-            
-            // Komut satırı argümanlarını topla
-            var commandLine = ""
-            let argc = Int(exec.argc)
-            for i in 0..<argc {
-                if let argPtr = exec.argv[i] {
-                    commandLine += String(cString: argPtr) + " "
+                guard let pathData = pathStruct.data else {
+                    print("Executable path okunamadı.")
+                    return
                 }
-            }
-            commandLine = commandLine.trimmingCharacters(in: .whitespaces)
 
-            // İleri düzey tespit - sadece dosya adında değil içerikte de kontrol
-            let suspicious = [
-                "inject", "task_for_pid", "mach_inject", "dlopen", "mprotect",
-                "osascript", "SecurityAgent", "DYLD_INSERT_LIBRARIES"
-            ]
+                let pathString = String(bytesNoCopy: UnsafeMutableRawPointer(mutating: pathData),
+                                        length: Int(pathStruct.length),
+                                        encoding: .utf8,
+                                        freeWhenDone: false) ?? "<bilinmiyor>"
+                
+                let pid = pidFromAuditToken(target.audit_token)
+                
+                // PPID için EndpointSecurity API içinde doğrudan yok, geçici 0 kullanalım
+                let ppid: Int = 0
 
-            let joined = path.lowercased() + " " + commandLine.lowercased()
-            let isThreat = suspicious.contains { joined.contains($0) }
+                if pathString.lowercased().contains("inject") ||
+                    pathString.lowercased().contains("task_for_pid") ||
+                    pathString.lowercased().contains("mach_inject") {
 
-            if isThreat {
-                let log = OCSFLog(
-                    id: UUID().uuidString,
-                    timestamp: Date().timeIntervalSince1970,
-                    pid: Int(pid),
-                    ppid: ppid,
-                    processName: path,
-                    commandLine: commandLine,
-                    eventType: "process_injection",
-                    details: ["reason": "Şüpheli işlem içeriği tespit edildi."]
-                )
+                    let log = OCSFLog(
+                        id: UUID().uuidString,
+                        timestamp: Date().timeIntervalSince1970,
+                        pid: Int(pid),
+                        ppid: ppid,
+                        processName: pathString,
+                        commandLine: "",
+                        eventType: "process_injection",
+                        details: ["reason": "Yürütülen süreç task_for_pid veya benzeri içeriyor."]
+                    )
 
-                OCSFLogger.save(log: log)
-                ThreatLogger.shared.insert(log: log)
+                    OCSFLogger.save(log: log)
+                    ThreatLogger.shared.insert(log: log)
 
-                print(" Şüpheli işlem tespit edildi: \(path) (PID: \(pid))")
-            } else {
-                print("Normal işlem: \(path) (PID: \(pid))")
+                    print(" Process Injection şüphesi: \(pathString) (PID: \(pid))")
+                } else {
+                    print(" Process exec: \(pathString) (PID: \(pid))")
+                }
             }
         }
 
-        guard result == ES_NEW_CLIENT_RESULT_SUCCESS, let client = client else {
-            print("ES client oluşturulamadı.")
+        if result != ES_NEW_CLIENT_RESULT_SUCCESS || client == nil {
+            print(" ES client oluşturulamadı.")
             return nil
         }
 
         let events: [es_event_type_t] = [ES_EVENT_TYPE_NOTIFY_EXEC]
 
-        guard es_subscribe(client, events, UInt32(events.count)) == ES_RETURN_SUCCESS else {
-            print("Subscribe başarısız.")
+        if es_subscribe(client!, events, UInt32(events.count)) != ES_RETURN_SUCCESS {
+            print(" Subscribe başarısız.")
             return nil
         }
 
-        print("ESClient başlatıldı.")
+        print(" ESClient aktif.")
     }
 
     deinit {
