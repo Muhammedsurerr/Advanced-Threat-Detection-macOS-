@@ -61,8 +61,13 @@ Projede MITRE ATT&CK taktikleri kapsamında aşağıdaki saldırı teknikleri i�
 <img width="941" height="734" alt="3" src="https://github.com/user-attachments/assets/1eff0ba2-092b-469f-a9f0-903a64fe9db8" />
 
 <img width="941" height="734" alt="4" src="https://github.com/user-attachments/assets/5659a529-98d1-443e-9b65-24c79a305191" />
-<img width="941" height="734" alt="6" src="https://github.com/user-attachments/asset<img width="941" height="734" alt="7" src="https://github.com/user-attachments/assets/c4de0298-7c2f-4eb2-ba6b-df1911d38f38" />
-s/3ef85971-11ee-4acc-b1b9-9db55709f001" /><img width="941" height="734" alt="5" src="https://github.com/user-attachments/assets/e6903679-ed87-44c2-ac1e-07516946ebd1" />
+
+<img width="941" height="734" alt="6" src="https://github.com/user-attachments/assets/3ef85971-11ee-4acc-b1b9-9db55709f001" />
+
+<img width="941" height="734" alt="7" src="https://github.com/user-attachments/assets/c4de0298-7c2f-4eb2-ba6b-df1911d38f38" />
+
+
+<img width="941" height="734" alt="5" src="https://github.com/user-attachments/assets/e6903679-ed87-44c2-ac1e-07516946ebd1" />
 
 
 
