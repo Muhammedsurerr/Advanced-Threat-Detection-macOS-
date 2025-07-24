@@ -5,7 +5,7 @@ class MemoryTamperMonitor: ObservableObject {
 
     func startMonitoring(scriptName: String, onDetect: @escaping (_ pid: Int, _ message: String) -> Void) {
         guard let scriptPath = Bundle.main.path(forResource: scriptName, ofType: "btf") else {
-            print("❌ Script bulunamadı: \(scriptName).bt")
+            print(" Script bulunamadı: \(scriptName).bt")
             return
         }
         
@@ -18,13 +18,13 @@ class MemoryTamperMonitor: ObservableObject {
         process.standardError = pipe
         
         process.terminationHandler = { _ in
-            print("📴 Memory tamper monitor process ended.")
+            print(" Memory tamper monitor process ended.")
         }
         
         do {
             try process.run()
             self.task = process
-            print("🚀 Memory tamper monitoring started.")
+            print(" Memory tamper monitoring started.")
             
             pipe.fileHandleForReading.readabilityHandler = { handle in
                 let output = String(data: handle.availableData, encoding: .utf8) ?? ""
@@ -44,7 +44,7 @@ class MemoryTamperMonitor: ObservableObject {
                 }
             }
         } catch {
-            print("❌ Failed to start memory tamper monitor: \(error)")
+            print(" Failed to start memory tamper monitor: \(error)")
         }
     }
     
