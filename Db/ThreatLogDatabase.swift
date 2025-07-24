@@ -37,7 +37,7 @@ class ThreatLogger {
             let dbPath = documents.appendingPathComponent("threat_logs_encrypted.sqlite").path
             db = try Connection(dbPath)
 
-            // 🔐 SQLCipher kullanıyorsan burada şifre belirleyebilirsin
+            //  SQLCipher kullanıyorsan 
             // try db.key("sifre")
 
             // Tabloyu oluştur (zaten varsa oluşturma)
@@ -51,9 +51,9 @@ class ThreatLogger {
                 t.column(details) // JSON formatında açıklayıcı bilgiler
             })
 
-            print("✅ SQLite veritabanı oluşturuldu: \(dbPath)")
+            print(" SQLite veritabanı oluşturuldu: \(dbPath)")
         } catch {
-            print("❌ Veritabanı hatası: \(error)")
+            print(" Veritabanı hatası: \(error)")
         }
     }
 
@@ -74,9 +74,9 @@ class ThreatLogger {
                 eventType <- log.eventType,
                 details <- jsonString
             ))
-            print("✅ Log başarıyla SQLite’a eklendi: \(log.processName)")
+            print(" Log başarıyla SQLite’a eklendi: \(log.processName)")
         } catch {
-            print("❌ Log ekleme hatası: \(error)")
+            print(" Log ekleme hatası: \(error)")
         }
     }
 
@@ -104,7 +104,7 @@ class ThreatLogger {
                 }
             }
         } catch {
-            print("❌ Kayıtlar okunamadı: \(error)")
+            print(" Kayıtlar okunamadı: \(error)")
         }
         
         return results
@@ -120,7 +120,7 @@ class ThreatLogger {
                 result[type, default: 0] += 1
             }
         } catch {
-            print("❌ Sayım hatası: \(error)")
+            print(" Sayım hatası: \(error)")
         }
 
         return result
