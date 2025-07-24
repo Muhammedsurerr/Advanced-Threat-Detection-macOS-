@@ -1,52 +1,62 @@
 import Foundation
 
-// ThreatDetector: Süreç komutlarını ve argümanlarını inceleyerek potansiyel tehditleri tespit eden sınıf
-// Hala test amaçlı ekranda çıktı veriyor
 class ThreatDetector {
     
     // analyze: Verilen ProcessInfo üzerinde çeşitli tehdit türlerini kontrol eder
-    // Eğer bir tehdit tespit edilirse, (true, sebep) çiftini döner
-    // Aksi halde (false, nil)
+    // Eğer bir tehdit tespit edilirse, (true, sebep) çiftini döner, aksi halde (false, nil)
     static func analyze(process: ProcessInfo) -> (detected: Bool, details: String?) {
-        let cmd = process.name.lowercased()     // Komut adı küçük harfe çevrilir
-        let args = process.arguments.lowercased()  // Argümanlar küçük harfe çevrilir
+        let cmd = process.name.lowercased()        // Komut adı
+        let args = process.arguments.lowercased()  // Argümanlar
 
-        // Process Injection kontrolü
-        // Komut veya argümanlar arasında "inject" veya "mach_inject" varsa şüpheli kabul edilir
-        if cmd.contains("inject") || args.contains("mach_inject") {
-            return mark(process, type: "process_injection", reason: "Process Injection şüphesi.")
+        // MARK: - 1. Process Injection (T1055.002)
+        // Yaygın injection araçları ve fonksiyon isimleri
+        let injectionIndicators = [
+            "inject", "mach_inject", "task_for_pid", "dlopen", "dlsym", "mach_vm_write",
+            "mach_vm_allocate", "pthread_create", "thread_create", "libinject", "remote_call",
+            "dyld_insert_libraries"
+        ]
+        if injectionIndicators.contains(where: { cmd.contains($0) || args.contains($0) }) {
+            return mark(process, type: "process_injection", reason: "Process Injection (T1055.002) belirtisi.")
         }
 
-        // Credential Dumping kontrolü
-        // "keychain" komut ya da argümanlarda bulunursa şüpheli kabul edilir
-        if args.contains("keychain") || cmd.contains("keychain") {
-            return mark(process, type: "credential_access", reason: "Credential Dumping şüphesi.")
+        // MARK: - 2. Credential Dumping (T1555.004)
+        let credentialIndicators = [
+            "keychain", "security find-generic-password", "security dump-keychain",
+            "/usr/bin/security", "keychain_dump", "SecKey", "SecItemCopy", "SecKeychain"
+        ]
+        if credentialIndicators.contains(where: { cmd.contains($0) || args.contains($0) }) {
+            return mark(process, type: "credential_access", reason: "Credential Dumping (T1555.004) şüphesi.")
         }
 
-        // Dosyasız Zararlı Yazılım (Fileless Malware) kontrolü
-        // Argümanlarda osascript, jxa, memory-only veya eval varsa şüpheli kabul edilir
-        if args.contains("osascript") || args.contains("jxa") || args.contains("memory-only") || args.contains("eval") {
-            return mark(process, type: "fileless_execution", reason: "Dosyasız zararlı yazılım şüphesi.")
+        // MARK: - 3. Fileless Malware Execution (T1059.002)
+        let filelessIndicators = [
+            "osascript", "jxa", "memory-only", "eval", "run script", "NSAppleScript",
+            "AppleScript", "do shell script"
+        ]
+        if filelessIndicators.contains(where: { cmd.contains($0) || args.contains($0) }) {
+            return mark(process, type: "fileless_execution", reason: "Dosyasız Zararlı Yazılım (T1059.002) belirtisi.")
         }
 
-        // Bellek Üzerinde Şüpheli İşlem (Memory Tamper) kontrolü
-        // Argümanlarda ptrace, mprotect, rwx, PT_DENY_ATTACH, inject_code varsa şüpheli kabul edilir
-        if args.contains("ptrace") || args.contains("mprotect") || args.contains("rwx") || args.contains("PT_DENY_ATTACH") || args.contains("inject_code") {
-            return mark(process, type: "memory_tamper", reason: "Bellek üzerinde şüpheli işlem tespit edildi.")
+        // MARK: - 4. Memory Tampering / Anti-Debug (T1620)
+        let memoryIndicators = [
+            "ptrace", "PT_DENY_ATTACH", "mprotect", "rwx", "memcpy", "virtualprotect",
+            "memory tamper", "hook", "inject_code", "syscall intercept"
+        ]
+        if memoryIndicators.contains(where: { cmd.contains($0) || args.contains($0) }) {
+            return mark(process, type: "memory_tamper", reason: "Bellek üzerinde şüpheli işlem (T1620).")
         }
 
-        // Genel Malware kontrolü (Şüpheli malware benzeri isimler)
-        if cmd.contains("malware") {
-            return mark(process, type: "process_exec", reason: "Şüpheli malware benzeri komut tespit edildi.")
+        // MARK: - 5. Genel Malware Adı / Şablon Tespiti
+        let suspiciousNames = ["malware", "trojan", "ransom", "spy", "stealer"]
+        if suspiciousNames.contains(where: { cmd.contains($0) }) {
+            return mark(process, type: "process_exec", reason: "Şüpheli malware adı içeriyor.")
         }
 
-        // Hiçbir tehdit tespit edilmedi
+        // Tehdit tespit edilmedi
         return (false, nil)
     }
 
-    // mark: Şüpheli süreç için OCSF formatında log oluşturur ve kaydeder
-    // Ayrıca SQLite veritabanına da ekleme yapar
-    // İşaretlenen sürecin tespit edildiğini ve sebebini döner
+    // mark: Şüpheli süreç için OCSF log kaydı oluşturur
     private static func mark(_ process: ProcessInfo, type: String, reason: String) -> (Bool, String) {
         let log = OCSFLog(
             id: UUID().uuidString,
@@ -54,7 +64,7 @@ class ThreatDetector {
             pid: process.pid,
             ppid: process.ppid,
             processName: process.name,
-            commandLine: process.arguments, // Yeni alan burada dolduruluyor
+            commandLine: process.arguments,
             eventType: type,
             details: ["reason": reason]
         )
@@ -62,5 +72,37 @@ class ThreatDetector {
         ThreatLogger.shared.insert(log: log)
         return (true, reason)
     }
+    static func processContainsRWXMemory(pid: Int32) -> Bool {
+            // Swift wrapper kullanılabilir: task_for_pid + vm_region
+            // Burada sadece örnek bir kontrol gösterimi
+            let output = shell(["vmmap", String(pid)])
+            return output.contains("rwx")
+        }
 
-}
+        static func containsSuspiciousStringsInMemory(pid: Int32) -> Bool {
+            let output = shell(["strings", "/proc/\(pid)/exe"])
+            let keywords = ["task_for_pid", "dlopen", "eval", "osascript", "secitemcopy", "ptrace"]
+            return keywords.contains { output.contains($0) }
+        }
+
+        static func processHasSuspiciousOpenFiles(pid: Int32) -> Bool {
+            let output = shell(["lsof", "-p", String(pid)])
+            return output.contains("/tmp") || output.contains(".dylib")
+        }
+
+        // MARK: - Shell Executor
+        @discardableResult
+        static func shell(_ args: [String]) -> String {
+            let task = Process()
+            task.launchPath = "/usr/bin/env"
+            task.arguments = args
+
+            let pipe = Pipe()
+            task.standardOutput = pipe
+            task.launch()
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            return String(data: data, encoding: .utf8) ?? ""
+        }
+    }
+
+
